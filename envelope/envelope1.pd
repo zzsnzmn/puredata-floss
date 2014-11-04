@@ -1,0 +1,11 @@
+#N canvas 599 150 419 231 10;
+#X obj 23 137 line;
+#X floatatom 23 172 5 0 0 0 - - -;
+#X msg 22 21 222 1000;
+#X msg 37 50 0 500;
+#X msg 53 76 1;
+#X text 113 21 line will go to a value over a certain interval;
+#X connect 0 0 1 0;
+#X connect 2 0 0 0;
+#X connect 3 0 0 0;
+#X connect 4 0 0 0;

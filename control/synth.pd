@@ -1,0 +1,61 @@
+#N canvas 788 114 593 678 10;
+#X obj 23 21 key;
+#X obj 23 56 trigger float float bang;
+#X obj 23 94 mtof;
+#X obj 109 139 * 0.99;
+#X obj 23 185 phasor~;
+#X obj 109 188 phasor~;
+#X obj 23 238 *~ 0.5;
+#X obj 93 297 mtof;
+#X obj 93 327 * 1.5;
+#X obj 93 362 pack 0 300;
+#X obj 93 389 line~;
+#X obj 23 428 vcf~ 220 3;
+#X msg 164 477 1 150 \, 0.9 150 150 \, 0 1000 500;
+#X obj 39 512 vline~;
+#X obj 23 553 *~;
+#X obj 23 605 dac~;
+#X text 22 634 http://en.flossmanuals.net/pure-data/audio-tutorials/4-stage-sequencer/
+;
+#X text 203 47 [trigger] will send a 'bang' to the AMP stage and a
+float to the FILTER stage and another float to the OSCILLATOR STAGE.
+;
+#X text 480 22 INPUT STAGE;
+#X text 198 140 change the float from [key] to a frequency in Hz \,
+send it to the first [osc~]. multiple the frequency in Hz by 0.99 to
+get a slightly detuned frequency and send it to the second [osc~].
+add the two [osc~] signals together and multiply by 0.5 to prevent
+clipping;
+#X text 483 94 OSCILLATOR STAGE;
+#X text 202 301 change the float from [key] to a frequency in Hz \,
+and multiply it by 1.5 so the [vcf~] is a half octave above the [osc~]
+frequencies. [pack] makes a message with this frequency together with
+500 this tells [line~] 'ramp to this number in 500 milliseconds'. the
+output of [line~] sweeps the [vcf~] to the target frequency in 500ms.
+the resoance is set to '3' on [vcf~];
+#X text 204 521 attack = 150 \, decay = 150 \, sustain = 200 \, release
+= 1000;
+#X text 203 555 each 'bang' from [trigger] sends a message to [vline~]
+which tells it to make a complex audio ramp. this ramp goes to the
+audio multiplication [*~] object and controls the gain of the audio
+stream.;
+#X text 475 280 FILTER STAGE;
+#X text 475 455 AMP STAGE;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 1 1 7 0;
+#X connect 1 2 12 0;
+#X connect 2 0 4 0;
+#X connect 2 0 3 0;
+#X connect 3 0 5 0;
+#X connect 4 0 6 0;
+#X connect 5 0 6 0;
+#X connect 6 0 11 0;
+#X connect 7 0 8 0;
+#X connect 8 0 9 0;
+#X connect 9 0 10 0;
+#X connect 10 0 11 1;
+#X connect 11 0 14 0;
+#X connect 12 0 13 0;
+#X connect 13 0 14 1;
+#X connect 14 0 15 0;

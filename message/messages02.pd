@@ -1,0 +1,19 @@
+#N canvas 778 130 450 300 10;
+#X msg 19 49 3 4 5;
+#X obj 19 86 float;
+#X floatatom 19 124 5 0 0 0 - - -;
+#X obj 69 124 print 1 message;
+#X msg 19 181 3 \, 4 \, 5;
+#X obj 19 219 float;
+#X floatatom 19 262 5 0 0 0 - - -;
+#X obj 69 261 print 3 message;
+#X text 18 17 one list with 3 elements \, only the first is read by
+[float];
+#X text 17 147 three messages \, each sent immediately after the other
+(commas are magic);
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 1 0 3 0;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 5 0 7 0;

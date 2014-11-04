@@ -1,0 +1,30 @@
+#N canvas 722 22 286 300 10;
+#X msg -43 18 before;
+#X msg -28 42 now;
+#X msg -14 66 after;
+#X msg -1 90 something else;
+#X obj -43 134 route before now after;
+#X obj -41 261 print BEFORE;
+#X obj 0 241 print NOW;
+#X obj 43 221 print AFTER;
+#X obj 86 201 print NONE OF THEM;
+#X obj -38 246 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 3 226 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 46 206 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 89 186 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X connect 0 0 4 0;
+#X connect 1 0 4 0;
+#X connect 2 0 4 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 4 0 9 0;
+#X connect 4 1 6 0;
+#X connect 4 1 10 0;
+#X connect 4 2 7 0;
+#X connect 4 2 11 0;
+#X connect 4 3 8 0;
+#X connect 4 3 12 0;

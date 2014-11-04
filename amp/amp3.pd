@@ -1,0 +1,24 @@
+#N canvas 727 197 437 379 10;
+#X obj -13 10 osc~ 440;
+#X obj -13 348 dac~;
+#X obj -13 311 *~;
+#X msg 2 58 bang;
+#X obj 54 133 delay 1000;
+#X msg 2 192 1 1000;
+#X msg 54 232 0 1000;
+#X obj 2 274 line~;
+#X text 139 135 wait 1000ms after then pass "bang";
+#X text 73 193 go to 1 in 1000ms;
+#X text 111 229 go to 0 in 1000ms;
+#X text 57 273 use [line~] to geenrate an audio ramp;
+#X text 55 311 multiply the audio signal from the [osc~] by ramp coming
+from [line~];
+#X connect 0 0 2 0;
+#X connect 2 0 1 0;
+#X connect 2 0 1 1;
+#X connect 3 0 5 0;
+#X connect 3 0 4 0;
+#X connect 4 0 6 0;
+#X connect 5 0 7 0;
+#X connect 6 0 7 0;
+#X connect 7 0 2 1;

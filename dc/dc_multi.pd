@@ -1,0 +1,19 @@
+#N canvas 856 177 239 333 10;
+#X obj 14 -46 phasor~ 1000;
+#X obj 14 -10 expr~ ($v1 > .5) * 2 - 1;
+#X obj 14 75 tabwrite~ waveform;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array waveform 100 float 1;
+#A 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+-1 -1 -1 -1 -1 -1 -1 -1 -1 -1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+1 1 1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1;
+#X coords 0 1 99 -1 200 140 1;
+#X restore 15 113 graph;
+#X obj 38 42 metro 100;
+#X obj 38 15 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
+;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 4 0 2 0;
+#X connect 5 0 4 0;

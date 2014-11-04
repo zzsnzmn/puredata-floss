@@ -1,0 +1,14 @@
+#N canvas 778 130 412 280 10;
+#X text 28 22 three separate messages:;
+#X text 36 44 - first is printed;
+#X text 36 63 - 2nd and 3rd are sent to their respective receive objects
+;
+#X obj 37 187 print;
+#X obj 251 185 receive parameter_y;
+#X obj 120 185 receive parameter_x;
+#X floatatom 120 231 5 0 0 0 - - -;
+#X floatatom 251 232 5 0 0 0 - - -;
+#X msg 37 103 3 \; parameter_x 10 \; parameter_y 45.6 \;;
+#X connect 4 0 7 0;
+#X connect 5 0 6 0;
+#X connect 8 0 3 0;

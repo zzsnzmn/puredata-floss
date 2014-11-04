@@ -1,0 +1,66 @@
+#N canvas 739 132 600 704 10;
+#X obj 14 9 noise~;
+#X obj 38 75 mtof;
+#X obj 41 51 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 6500 1;
+#X obj 80 592 metro 100;
+#X obj 80 565 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 18 663 dac~;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array vcf 100 float 1;
+#A 0 0.0505883 0.0505882 0.0505882 0.0505881 0.0505881 0.050588 0.050588
+0.0505879 0.0505879 0.0505878 0.0505878 0.0505877 0.0505877 0.0505876
+0.0505876 0.0505875 0.0505874 0.0505874 0.0505873 0.0505873 0.0505872
+0.0505872 0.0505871 0.0505871 0.050587 0.050587 0.0505869 0.0505869
+0.0505868 0.0505868 0.0505867 0.0505867 0.0505866 0.0505866 0.0505865
+0.0505865 0.0505864 0.0505864 0.0505863 0.0505862 0.0505862 0.0505861
+0.0505861 0.050586 0.050586 0.0505859 0.0505859 0.0505858 0.0505858
+0.0505857 0.0505857 0.0505856 0.0505856 0.0505855 0.0505855 0.0505854
+0.0505854 0.0505853 0.0505853 0.0505852 0.0505852 0.0505851 0.0505851
+0.050585 0.0505849 0.0505849 0.0505848 0.0505848 0.0505847 0.0505847
+0.0505846 0.0505846 0.0505845 0.0505845 0.0505844 0.0505844 0.0505843
+0.0505843 0.0505842 0.0505842 0.0505841 0.0505841 0.050584 0.050584
+0.0505839 0.0505839 0.0505838 0.0505837 0.0505837 0.0505836 0.0505836
+0.0505835 0.0505835 0.0505834 0.0505834 0.0505833 0.0505833 0.0505832
+0.0505832 0.0505831;
+#X coords 0 1 99 -1 200 140 1 0 0;
+#X restore 193 545 graph;
+#X floatatom 67 400 5 0 0 0 - - -;
+#X obj 59 629 tabwrite~ vcf;
+#X obj 10 478 vcf~ 220 1;
+#X obj 53 158 osc~;
+#X obj 53 282 *~;
+#X text 100 103;
+#X floatatom 53 118 5 0 0 0 - - -;
+#X obj 38 330 +~;
+#X floatatom 68 248 5 0 0 0 - - -;
+#X text 119 74 [mtof~] create center frequency for [vcf~] to be modulated.
+;
+#X text 121 117 modulation_frequency_in_Hz;
+#X text 121 159 this [osc~] is the "modulator" oscillator. it determines
+how quickly the center frequency of the [vcf~] changes \, and by how
+much.;
+#X text 121 244 modulation_amount_in_Hz;
+#X text 121 277 multiply the modulating signal by the amount of modulation
+we want;
+#X text 121 328 add the modulator to center frequency of [vcf~].;
+#X text 119 398 third inlet controls resonance 1-10;
+#X text 119 472 [vcf~] passes the center frequency unchanged \, and
+reduces or eliminates frequencies above and below it. the center frequency
+is determined by an audio signal. you can hear the center frequency
+changed by the modulator oscillator.;
+#X connect 0 0 9 0;
+#X connect 1 0 14 0;
+#X connect 2 0 1 0;
+#X connect 3 0 8 0;
+#X connect 4 0 3 0;
+#X connect 7 0 9 2;
+#X connect 9 0 5 0;
+#X connect 9 0 5 1;
+#X connect 9 0 8 0;
+#X connect 10 0 11 0;
+#X connect 11 0 14 1;
+#X connect 13 0 10 0;
+#X connect 14 0 9 1;
+#X connect 15 0 11 1;

@@ -1,0 +1,23 @@
+#N canvas 727 197 494 401 10;
+#X obj 16 13 osc~ 440;
+#X obj 34 64 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 1900 1;
+#X obj 31 100 / 127;
+#X obj 16 303 *~;
+#X obj 16 351 dac~;
+#X text 86 100 divide by 127 to get a value between 0-1;
+#X text 55 299 sending numbers to [*~] object without using [line~]
+for something will cause clicks;
+#X obj 31 216 line~;
+#X obj 31 149 pack 0 50;
+#X text 111 148 [pack] puts x numbers into one message. [line~] comes
+from the slider \, and interpolation time is a constant 50ms;
+#X text 79 213 use [line~] to generate an audio ramp \, which will
+smooth out the change in volume \, eliminating clicks;
+#X connect 0 0 3 0;
+#X connect 1 0 2 0;
+#X connect 2 0 8 0;
+#X connect 3 0 4 0;
+#X connect 3 0 4 1;
+#X connect 7 0 3 1;
+#X connect 8 0 7 0;

@@ -1,0 +1,66 @@
+#N canvas 722 22 532 643 10;
+#X msg 19 18 instrument1;
+#X msg 47 44 pitch;
+#X msg 86 44 amplitude;
+#X msg 149 44 pan;
+#X obj 47 61 symbol;
+#X obj 19 103 pack s s f;
+#X floatatom 99 87 5 0 0 0 - - -;
+#X obj 19 123 route list;
+#X msg 40 147 instrument1 pitch 60 \, instrument1 amplitude 20 \, instrument1
+pan 0.2;
+#X obj 69 422 route instrument1 instrument2 instrument3;
+#X obj 154 286 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg 154 313 instrument3 on-off \$1;
+#X msg 154 337 instrument3 file flute-1;
+#X msg 154 365 instrument3 file bass-20 \, instrument3 on-off 1;
+#X msg 69 225 instrument2 freq 600.56 \, instrument2 to-from 0.1 0.98
+\, instrument2 start;
+#X text 190 199 instrument2;
+#X text 190 123 instrument1;
+#X text 189 286 instrument3;
+#X obj -15 471 route pitch amplitude pan;
+#X floatatom -15 493 5 0 0 0 - - -;
+#X floatatom 34 493 5 0 0 0 - - -;
+#X floatatom 83 493 5 0 0 0 - - -;
+#X obj 150 544 route freq to-from start;
+#X floatatom 150 566 5 0 0 0 - - -;
+#X obj 197 591 unpack f f;
+#X floatatom 197 613 5 0 0 0 - - -;
+#X floatatom 254 613 5 0 0 0 - - -;
+#X obj 244 566 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 231 458 route on-off file;
+#X obj 231 485 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 280 485 symbol;
+#X symbolatom 280 512 10 0 0 0 - - -;
+#X connect 0 0 5 0;
+#X connect 1 0 4 0;
+#X connect 2 0 4 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 1;
+#X connect 5 0 7 0;
+#X connect 6 0 5 2;
+#X connect 7 0 9 0;
+#X connect 8 0 9 0;
+#X connect 9 0 18 0;
+#X connect 9 1 22 0;
+#X connect 9 2 28 0;
+#X connect 10 0 11 0;
+#X connect 11 0 9 0;
+#X connect 12 0 9 0;
+#X connect 13 0 9 0;
+#X connect 14 0 9 0;
+#X connect 18 0 19 0;
+#X connect 18 1 20 0;
+#X connect 18 2 21 0;
+#X connect 22 0 23 0;
+#X connect 22 1 24 0;
+#X connect 22 2 27 0;
+#X connect 24 0 25 0;
+#X connect 24 1 26 0;
+#X connect 28 0 29 0;
+#X connect 28 1 30 0;
+#X connect 30 0 31 0;

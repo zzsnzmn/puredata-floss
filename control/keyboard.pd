@@ -1,0 +1,45 @@
+#N canvas 779 136 542 505 10;
+#X obj 62 14 key;
+#X obj 115 14 keyup;
+#X obj 11 84 mtof;
+#X floatatom 71 45 5 0 0 0 - - -;
+#X floatatom 127 45 5 0 0 0 - - -;
+#X obj 11 335 osc~;
+#X obj 11 432 *~;
+#X obj 63 334 line~;
+#X obj 62 307 pack 0 50;
+#X floatatom 113 280 5 0 0 0 - - -;
+#X obj 62 169 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 115 220 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 115 245 0;
+#X obj 11 469 dac~;
+#X msg 62 197 1;
+#X text 180 15 [key] input ascii code for each key on the computer
+keyboard that has been pressed. [keyup[ sends the ascii code of a key
+when it is released.;
+#X text 182 81 convert ascii into frequency in Hz and send to [osc~]
+;
+#X text 181 164 send a 'bang' on key press;
+#X text 180 219 send a 'bang' on a key release;
+#X text 183 307 attack/decay envelope generator [line~] needs two numbers
+\, a start and a time. it can be changed with the number box.;
+#X text 180 428 ramp from [line~] changes the gain signal from the
+[osc~];
+#X connect 0 0 3 0;
+#X connect 0 0 2 0;
+#X connect 0 0 10 0;
+#X connect 1 0 11 0;
+#X connect 1 0 4 0;
+#X connect 2 0 5 0;
+#X connect 5 0 6 0;
+#X connect 6 0 13 0;
+#X connect 6 0 13 1;
+#X connect 7 0 6 1;
+#X connect 8 0 7 0;
+#X connect 9 0 8 1;
+#X connect 10 0 14 0;
+#X connect 11 0 12 0;
+#X connect 12 0 8 0;
+#X connect 14 0 8 0;

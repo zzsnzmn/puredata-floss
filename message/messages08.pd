@@ -1,0 +1,36 @@
+#N canvas 747 81 257 399 10;
+#X obj -84 306 route bang float symbol list;
+#X msg -84 19 bang;
+#X msg -57 69 12;
+#X msg -49 92 float 32;
+#X msg -18 137 symbol aa;
+#X symbolatom -9 160 10 0 0 0 - - -;
+#X msg 13 205 8 22 aaa;
+#X msg 19 228 list who where why;
+#X obj -84 358 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -43 357 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -2 356 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 39 355 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 81 354 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text -91 372 bang;
+#X text -52 372 float;
+#X text -12 371 symbol;
+#X text 33 371 list;
+#X text 75 371 undefined;
+#X connect 0 0 8 0;
+#X connect 0 1 9 0;
+#X connect 0 2 10 0;
+#X connect 0 3 11 0;
+#X connect 0 4 12 0;
+#X connect 1 0 0 0;
+#X connect 2 0 0 0;
+#X connect 3 0 0 0;
+#X connect 4 0 0 0;
+#X connect 5 0 0 0;
+#X connect 6 0 0 0;
+#X connect 7 0 0 0;

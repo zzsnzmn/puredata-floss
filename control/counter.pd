@@ -1,0 +1,27 @@
+#N canvas 0 22 539 304 10;
+#X obj 18 16 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 18 48 metro;
+#X floatatom 45 16 5 0 0 0 - - -;
+#X obj 18 82 f;
+#X obj 61 82 + 1;
+#X obj 19 177 mod 16;
+#X floatatom 19 229 5 0 0 0 - - -;
+#X floatatom 72 177 5 0 0 0 - - -;
+#X text 130 12 [toggle] acts as on/off switch;
+#X text 134 48 [metro] sends a 'bang' at regular intervals \, receives
+number from cold input;
+#X text 135 85 [float]/[f] stores a floating point number on its 'cold'
+side and outputs it when it receives a 'bang' on the 'hot' side. every
+time [float]/[f] gets a bang \, it sends the number stored on the left
+and receives a [+ 1] the next bang.;
+#X text 134 174 numbers coming from the counter increase endlessly.
+use a [mod](ulo) to wrap the numbers from 0-15;
+#X connect 0 0 1 0;
+#X connect 1 0 3 0;
+#X connect 2 0 1 1;
+#X connect 3 0 4 0;
+#X connect 3 0 5 0;
+#X connect 3 0 7 0;
+#X connect 4 0 3 1;
+#X connect 5 0 6 0;

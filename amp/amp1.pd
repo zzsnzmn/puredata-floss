@@ -1,0 +1,15 @@
+#N canvas 727 197 410 266 10;
+#X obj 19 29 osc~ 440;
+#X obj 37 80 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 34 116 / 127;
+#X obj 19 166 *~;
+#X obj 19 214 dac~;
+#X text 89 116 divide by 127 to get a value between 0-1;
+#X text 58 162 sending numbers to [*~] object without using [line~]
+for something will cause clicks;
+#X connect 0 0 3 0;
+#X connect 1 0 2 0;
+#X connect 2 0 3 1;
+#X connect 3 0 4 0;
+#X connect 3 0 4 1;

@@ -1,0 +1,29 @@
+#N canvas 720 137 466 385 10;
+#X msg 27 12 1 1000;
+#X msg 39 37 0 1000;
+#X floatatom 27 349 5 0 0 0 - - -;
+#X msg 50 62 0;
+#X obj 27 226 vline~;
+#X msg 80 158 stop;
+#X obj 58 254 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 58 280 metro 100;
+#X obj 27 310 snapshot~;
+#X msg 64 90 10 1000 \, 0 0 1000 \, 1 1000 3000;
+#X text 76 11 go to 1 in 1000ms;
+#X text 86 36 go to 0 in 1000ms;
+#X text 77 60 go to 0 in 0ms;
+#X text 80 111 ramp up to 10 in 1000ms \, go to 0 in 0ms after 1000ms
+delay \, go to 1 in 1000ms after 3000ms delay.;
+#X text 118 156 stop message freezes vline~ at its current value;
+#X text 109 311 [snapshot~] tells us the value of the audio signal
+every time it receives a bang;
+#X connect 0 0 4 0;
+#X connect 1 0 4 0;
+#X connect 3 0 4 0;
+#X connect 4 0 8 0;
+#X connect 5 0 4 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 2 0;
+#X connect 9 0 4 0;

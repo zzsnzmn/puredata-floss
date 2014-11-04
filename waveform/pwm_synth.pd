@@ -1,0 +1,35 @@
+#N canvas 21 27 497 383 10;
+#X obj 17 11 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 900 1;
+#X obj 14 37 mtof;
+#X obj 14 67 phasor~;
+#X floatatom 101 55 5 0 0 0 - - -;
+#X obj 101 87 / 100;
+#X obj 14 175 expr~ $v1 > $v2;
+#X obj 13 302 dac~;
+#X obj 86 272 tabwrite~ pwm;
+#X obj 109 244 metro 100;
+#X obj 109 222 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array pwm 100 float 1;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0;
+#X coords 0 1 99 -1 200 140 1;
+#X restore 213 225 graph;
+#X text 149 54 pulse width (0-100);
+#X text 154 89 divide by 100 to get range from 0-1;
+#X text 126 171 [expr~] checks if the value of the ramp is greater
+than the second input (0-1 range). if so output 1 \, otherwise 0;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 5 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 1;
+#X connect 5 0 7 0;
+#X connect 5 0 6 0;
+#X connect 5 0 6 1;
+#X connect 8 0 7 0;
+#X connect 9 0 8 0;

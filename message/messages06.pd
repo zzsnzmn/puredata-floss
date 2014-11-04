@@ -1,0 +1,12 @@
+#N canvas 747 81 153 132 10;
+#X msg -119 78 cue \$1 \$2 \, open \$3;
+#X obj -119 104 print COMMAND;
+#X floatatom -134 10 5 0 0 0 - - -;
+#X floatatom -98 10 5 0 0 0 - - -;
+#X obj -119 53 pack f f s;
+#X symbolatom -62 10 10 0 0 0 - - -;
+#X connect 0 0 1 0;
+#X connect 2 0 4 0;
+#X connect 3 0 4 1;
+#X connect 4 0 0 0;
+#X connect 5 0 4 2;

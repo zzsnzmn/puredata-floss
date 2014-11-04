@@ -1,0 +1,42 @@
+#N canvas 155 294 605 536 10;
+#X obj 20 16 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 3100 1;
+#X obj 17 42 mtof;
+#X obj 17 72 phasor~;
+#X floatatom 103 85 5 0 0 0 - - -;
+#X obj 103 112 / 100;
+#X obj 15 302 expr~ $v1 > $v2;
+#X obj 14 429 dac~;
+#X obj 87 399 tabwrite~ pwm;
+#X obj 110 371 metro 100;
+#X obj 110 349 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array pwm 100 float 1;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0;
+#X coords 0 1 99 -1 200 140 1;
+#X restore 214 352 graph;
+#X text 145 84 pulse width (0-100);
+#X text 145 112 divide by 100 to get range from 0-1;
+#X text 127 298 [expr~] checks if the value of the ramp is greater
+than the second input (0-1 range). if so output 1 \, otherwise 0;
+#X obj 103 150 osc~;
+#X obj 103 181 abs~;
+#X text 143 148 make an LFO sine wave from -1 to 1;
+#X text 143 181 convert any negative values from [osc~] to postitive
+ones range == 0-1;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 5 0;
+#X connect 3 0 4 0;
+#X connect 4 0 14 0;
+#X connect 5 0 7 0;
+#X connect 5 0 6 0;
+#X connect 5 0 6 1;
+#X connect 8 0 7 0;
+#X connect 9 0 8 0;
+#X connect 14 0 15 0;
+#X connect 15 0 5 1;

@@ -1,0 +1,56 @@
+#N canvas 73 126 489 620 10;
+#X obj 18 68 mtof~;
+#X obj 21 27 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 6700 1;
+#X floatatom 30 143 5 0 0 0 - - -;
+#X obj 30 181 osc~;
+#X floatatom 46 249 5 0 0 0 - - -;
+#X obj 31 288 *~;
+#X obj 16 323 +~;
+#X obj 16 357 osc~;
+#X obj 75 461 metro 100;
+#X obj 67 492 tabwrite~ fm;
+#X obj 10 547 dac~;
+#X obj 75 432 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X text 84 362 [osc~] is the "carrier" oscillator \, whose frequency
+is changed by the "modulator".;
+#X text 123 288 multiply the modulating signal by the amount of modulation
+we want;
+#X text 80 140 modulation frequency in Hz;
+#X text 81 181 [osc~] is the "modulator" oscillator. it determines
+how quickly the frequency of the carrier oscillator changes \, and
+by how much;
+#X text 81 68 [mtof~] creates the "carrier" audio signal which will
+be modulated;
+#X text 20 5 carrier frequency;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array fm 100 float 1;
+#A 0 0.952447 0.937108 0.918916 0.897615 0.872963 0.84474 0.812677
+0.776623 0.736423 0.69198 0.643258 0.590269 0.533149 0.47207 0.407295
+0.339186 0.268169 0.194745 0.119474 0.0429742 -0.0341074 -0.111105
+-0.187345 -0.262177 -0.334982 -0.405183 -0.472259 -0.535776 -0.59537
+-0.650751 -0.70174 -0.748231 -0.790171 -0.827617 -0.860677 -0.889512
+-0.914338 -0.935356 -0.952883 -0.967163 -0.978482 -0.98712 -0.993335
+-0.997408 -0.999529 -0.999938 -0.998797 -0.996236 -0.992394 -0.987353
+-0.981161 -0.973855 -0.965437 -0.955878 -0.94512 -0.933076 -0.919628
+-0.904662 -0.88803 -0.869555 -0.849048 -0.826334 -0.801196 -0.773437
+-0.742828 -0.709194 -0.672355 -0.632136 -0.588425 -0.54113 -0.490219
+-0.435703 -0.377664 -0.316258 -0.251703 -0.184301 -0.114423 -0.0425186
+0.0309022 0.105272 0.179977 0.254374 0.327797 0.39959 0.469118 0.535772
+0.598985 0.658284 0.713252 0.763557 0.808957 0.849304 0.884543 0.914715
+0.939892 0.960296 0.976115 0.987658 0.995245 0.999187;
+#X coords 0 1 99 -1 200 140 1;
+#X restore 185 465 graph;
+#X connect 0 0 6 0;
+#X connect 1 0 0 0;
+#X connect 2 0 3 0;
+#X connect 3 0 5 0;
+#X connect 4 0 5 1;
+#X connect 5 0 6 1;
+#X connect 6 0 7 0;
+#X connect 7 0 9 0;
+#X connect 7 0 10 0;
+#X connect 7 0 10 1;
+#X connect 8 0 9 0;
+#X connect 11 0 8 0;

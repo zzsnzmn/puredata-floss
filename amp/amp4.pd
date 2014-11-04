@@ -1,0 +1,16 @@
+#N canvas 727 197 405 307 10;
+#X obj 7 8 osc~ 440;
+#X obj 7 274 dac~;
+#X obj 7 237 *~;
+#X obj 22 184 vline~;
+#X msg 22 141 1 1000 \, 0.7 1000 1000 \, 0 1000 3000;
+#X text 24 34 * attack 1000ms * decay 1000ms after 1000ms * sustain
+1000ms after 2000ms * release 1000ms after 3000ms;
+#X text 85 182 use [vline~] to generate an audio ramp.;
+#X text 45 229 multiply the audio signal from [osc~] by the ramp coming
+from [vline~];
+#X connect 0 0 2 0;
+#X connect 2 0 1 0;
+#X connect 2 0 1 1;
+#X connect 3 0 2 1;
+#X connect 4 0 3 0;
